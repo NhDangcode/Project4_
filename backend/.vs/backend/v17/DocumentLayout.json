@@ -1,0 +1,267 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project4-main\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\models\\finalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\models\\finalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\detailordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\detailordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\reminder.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\reminder.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\controllers\\rolecontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\controllers\\rolecontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|d:\\project4-main\\backend\\backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{756EA841-62B3-4040-97A6-23ECCB924305}|backend\\backend.csproj|solutionrelative:backend\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\appsettings.json",
+              "RelativeDocumentMoniker": "backend\\appsettings.json",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\appsettings.json",
+              "RelativeToolTip": "backend\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-07T14:48:29.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\Product.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Models\\Product.cs",
+              "RelativeToolTip": "backend\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAkwCcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:48:04.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Company.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Models\\Company.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\Company.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Models\\Company.cs",
+              "RelativeToolTip": "backend\\Models\\Company.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:47:28.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\CompanyController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "backend\\Controllers\\CompanyController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAzwBQAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:46:40.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DetailOrderController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\DetailOrderController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\DetailOrderController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\DetailOrderController.cs",
+              "RelativeToolTip": "backend\\Controllers\\DetailOrderController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "backend\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAwwDcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FinalContext.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Models\\FinalContext.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\FinalContext.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Models\\FinalContext.cs",
+              "RelativeToolTip": "backend\\Models\\FinalContext.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwB0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ThongKeController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\ThongKeController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\ThongKeController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\ThongKeController.cs",
+              "RelativeToolTip": "backend\\Controllers\\ThongKeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "reminder.txt",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\reminder.txt",
+              "RelativeDocumentMoniker": "backend\\reminder.txt",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\reminder.txt",
+              "RelativeToolTip": "backend\\reminder.txt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAClAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-07-07T14:45:30.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "backend\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAIwI8AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "backend\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAkwNQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAADIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\UserController.cs",
+              "RelativeToolTip": "backend\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAewJQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RoleController .cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Controllers\\RoleController .cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\RoleController .cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Controllers\\RoleController .cs",
+              "RelativeToolTip": "backend\\Controllers\\RoleController .cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Project4-main\\backend\\backend\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\Category.cs",
+              "ToolTip": "D:\\Project4-main\\backend\\backend\\Models\\Category.cs",
+              "RelativeToolTip": "backend\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:45:30.542Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

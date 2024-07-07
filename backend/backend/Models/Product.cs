@@ -11,6 +11,8 @@ public partial class Product
 
     public string? Detail { get; set; }
 
+    public string? Author { get; set; }
+
     public int? Quantity { get; set; }
 
     public decimal? Price { get; set; }
@@ -25,9 +27,13 @@ public partial class Product
 
     public Guid? IdCategory { get; set; }
 
+    public Guid? IdCompany { get; set; }
+
     public virtual ICollection<Detailorder> Detailorders { get; set; } = new List<Detailorder>();
 
     public virtual Category? IdCategoryNavigation { get; set; }
+
+    public virtual Company? IdCompanyNavigation { get; set; }
 
     public virtual User? IdUserNavigation { get; set; }
 }

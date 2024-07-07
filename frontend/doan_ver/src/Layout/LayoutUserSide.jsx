@@ -1,29 +1,26 @@
 import React, { useEffect } from "react";
-import Header from "../userSide/components/Header/Header";
-import Footer from "../userSide/components/Footer/Footer";
-import Routers from "../routers/RoutersUserSide";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsApi } from "../redux/slices/productSlice";
+import { useDispatch } from "react-redux";
 import { getAllCartItemApi } from "../redux/slices/cartSlice";
 import { getAllCategoryApi } from "../redux/slices/categorySlice";
 import { getAllOrderApi } from "../redux/slices/orderSlice.js";
+import { getAllProductsApi } from "../redux/slices/productSlice";
+import Routers from "../routers/RoutersUserSide";
+import Footer from "../userSide/components/Footer/Footer";
+import Header from "../userSide/components/Header/Header";
+import { getAllCompanyApi } from "../redux/slices/companySlice.js";
 const LayoutUserSide = () => {
     const dispatch = useDispatch();
-    const tokenRedux = useSelector((state) => state.user.token);
-    const accessToken =
-        JSON.parse(localStorage.getItem("token")) === undefined
-            ? tokenRedux
-            : JSON.parse(localStorage.getItem("token"));
     useEffect(() => {
         const fetchGetAllProductsApi = async () => {
             await dispatch(getAllProductsApi());
             await dispatch(getAllCategoryApi());
+            await dispatch(getAllCompanyApi());
             await dispatch(getAllOrderApi());
-            await dispatch(getAllCartItemApi(accessToken));
+            await dispatch(getAllCartItemApi());
         };
 
         fetchGetAllProductsApi();
-    }, [accessToken]);
+    }, []);
     return (
         <>
             <Header />

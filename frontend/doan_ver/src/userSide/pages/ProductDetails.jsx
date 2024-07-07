@@ -12,16 +12,16 @@ import "../styles/product-details.css";
 import { toast } from "react-toastify";
 import { getDetailService } from "../../services/productService";
 import { VND } from "../../utils/convertVND";
+import { Height } from "@mui/icons-material";
 const ProductDetails = () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
     const dispatch = useDispatch();
     const [productDetail, setProductDetail] = useState({});
     const [countAddCart, setCountAddCart] = useState(1);
     const [loading, setLoading] = useState(false);
     const [loadingCart, setLoadingCart] = useState(false);
     const { id } = useParams();
-
+    const [quantity, setQuantity] = useState(1);
     useEffect(() => {
         const fetchDetailProductApi = async () => {
             setLoading(true);
@@ -29,13 +29,16 @@ const ProductDetails = () => {
             const productDetail = {
                 id: responeProduct.data?.id,
                 name: responeProduct.data?.name,
+                author: responeProduct.data?.author,
                 image: responeProduct.data?.pathImg,
                 price: responeProduct.data?.price,
                 description: responeProduct.data?.detail,
                 category: responeProduct.category?.name,
+                company: responeProduct.company?.name,
                 type: responeProduct.data?.type,
                 quantity: responeProduct.data?.quantity,
                 idCategory: responeProduct.category?.id,
+                idCompany: responeProduct.company.id,
             };
             setProductDetail(productDetail);
             setLoading(false);
@@ -45,28 +48,25 @@ const ProductDetails = () => {
 
     const products = useSelector((state) => state.product.products);
     const data = products.filter(
-        (item) => item.idCategory === productDetail.idCategory
+        (item) => item.idCategory === productDetail.idCategory && item.idCompany == productDetail.idCompany
     );
+
     const addToCart = () => {
         const data = {
             idProduct: productDetail.id,
             quantity: countAddCart,
             price: productDetail.price,
         };
-        const dataCart = {
-            accessToken: token,
-            data,
-        };
         const fetchAddProductToCartApi = async () => {
             setLoadingCart(true);
-            dispatch(addProductToCartApi(dataCart));
-            dispatch(getAllCartItemApi(token));
+            dispatch(addProductToCartApi(data));
+            dispatch(getAllCartItemApi());
             setLoadingCart(false);
             toast.success(
                 `Thêm ${productDetail.name} vào giỏ hàng thành công!`
             );
         };
-        if (currentUser?.data !== undefined) {
+        if (user) {
             fetchAddProductToCartApi();
         } else {
             toast.error("Bạn cần đăng nhập để thêm vào giỏ hàng!");
@@ -94,9 +94,19 @@ const ProductDetails = () => {
                     <section>
                         <Container>
                             <Row>
-                                <Col lg="6">
-                                    <img src={productDetail.image} alt="" />
+                                <Col>
+                                    <div className="book-frame">
+                                        <div className="book-cover"></div>
+                                        <div className="book-spine"></div>
+                                        <div className="book-back"></div>
+                                        <div className="product__image-container">
+                                            <img className="product__image" src={productDetail.image} alt={productDetail.name} />
+                                        </div>
+                                    </div>
                                 </Col>
+
+
+
                                 <Col>
                                     <div className="product__details">
                                         <h2>{productDetail.name}</h2>
@@ -106,35 +116,51 @@ const ProductDetails = () => {
                                                 flexDirection: "column",
                                             }}
                                         >
+                                            <br></br>
                                             <span className="product__price">
                                                 Giá :{" "}
                                                 {VND.format(
                                                     productDetail.price
                                                 )}
                                             </span>
-
+                                            <br></br>
                                             <span className="product__price">
                                                 Loại sản phẩm :{" "}
                                                 {productDetail.category
                                                     ? productDetail.category.toUpperCase()
                                                     : ""}
                                             </span>
+                                            <br></br>
+                                            <span className="product__price">
+                                                Nhà xuất bản: {" "}
+                                                {productDetail.category
+                                                    ? productDetail.company.toUpperCase()
+                                                    : ""}
+                                            </span>
+                                            <br></br>
                                             <span className="product__price">
                                                 Số lượng còn lại:{" "}
                                                 {productDetail.quantity}
                                             </span>
-                                            <p className="mt-3">
+                                            <br></br>
+                                            <span className="product__price">
+                                                Tác Giả:{" "}
+                                                {productDetail.author}
+                                            </span>
+
+                                            <br></br>
+                                            <span className="product__price">
+                                                Nội Dung:{" "}
                                                 {productDetail.description}
-                                            </p>
+                                            </span>
+                                            <br></br>
                                         </div>
+
                                         <div className="btn--group__addCart">
                                             <button
                                                 className="btn--sub__addCart"
                                                 onClick={() => {
-                                                    let count =
-                                                        countAddCart === 1
-                                                            ? 1
-                                                            : countAddCart - 1;
+                                                    let count = countAddCart === 1 ? 1 : countAddCart - 1;
                                                     setCountAddCart(count);
                                                 }}
                                             >
@@ -146,22 +172,35 @@ const ProductDetails = () => {
                                             </div>
                                             <button
                                                 className="btn--sub__addCart"
-                                                onClick={() =>
-                                                    setCountAddCart(
-                                                        countAddCart + 1
-                                                    )
-                                                }
+                                                onClick={() => {
+                                                    if (countAddCart < productDetail.quantity) {
+                                                        setCountAddCart(countAddCart + 1);
+                                                    } else {
+                                                        toast.error("Số lượng sản phẩm đã đạt giới hạn còn lại!");
+                                                    }
+                                                }}
                                             >
                                                 <i className="ri-add-fill"></i>
                                             </button>
+
                                         </div>
-                                        <motion.button
-                                            whileTap={{ scale: 1.2 }}
-                                            className="buy__btn btn__addCart"
-                                            onClick={addToCart}
-                                        >
-                                            Thêm vào giỏ
-                                        </motion.button>
+
+                                        <br></br>
+                                        <div>
+                                            {productDetail.quantity >= 2 ? (
+                                                <motion.button
+                                                    whileTap={{ scale: 1.2 }}
+                                                    className="buy__btn btn__addCart"
+                                                    onClick={addToCart}
+                                                >
+                                                    Thêm vào giỏ
+                                                </motion.button>
+                                            ) : (
+                                                <p style={{ color: 'red' }}>Sản phẩm tạm hết hàng</p>
+                                            )}
+                                        </div>
+
+
                                     </div>
                                 </Col>
                             </Row>
@@ -175,7 +214,7 @@ const ProductDetails = () => {
                                     marginBottom: "100px",
                                 }}
                             >
-                                <h1>Các sản phẩm tương tự</h1>
+                                <h1 >Các sản phẩm tương tự</h1>
                             </Row>
                             <Row>
                                 {products.length === 0 ? (

@@ -13,7 +13,7 @@ const LineChart = () => {
         Authorization: token,
     }
     useEffect(() => {
-        axios.get(`https://localhost:7102/api/thongke/doanhthu`, { headers })
+        axios.get(`https://localhost:4353/api/thongke/doanhthu`, { headers })
             .then(respone => {
                 if (respone.data.status === 200) {
                     setData(respone.data.data);

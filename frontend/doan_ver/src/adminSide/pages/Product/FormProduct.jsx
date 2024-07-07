@@ -8,7 +8,8 @@ export default function FormProduct(props) {
     const { initialData, submitForm } = props;
     const navigate = useNavigate();
     const categories = useSelector((state) => state.category.categories);
-    const user = JSON.parse(localStorage.getItem("currentUser"))?.data;
+    const companies = useSelector((state) => state.company.companies);
+    const user = JSON.parse(localStorage.getItem("user"));
     const imgReview = useRef(null);
     const handleUpImage = async (e) => {
         showImgProduct(e.target.files[0]);
@@ -49,6 +50,9 @@ export default function FormProduct(props) {
             ),
             idCategory: Yup.string().required(
                 "Loại sản phẩm không được để trống!"
+            ),
+            idCompany: Yup.string().required(
+                "Nhà xuất bản không được để trống!"
             ),
         }),
 
@@ -124,7 +128,21 @@ export default function FormProduct(props) {
                     />
                     <span className="text-danger">{errors.name}</span>
                 </div>
-
+                <div className="form-group">
+                    <h5 style={{ marginBottom: "10px" }} htmlFor="name_product">
+                        Tên tác giả
+                    </h5>
+                    <input
+                        onChange={handleChange}
+                        type="text"
+                        className="form-control"
+                        id="name_product"
+                        name="author"
+                        aria-describedby="validationName"
+                        value={values.author}
+                    />
+                    <span className="text-danger">{errors.name}</span>
+                </div>
                 <div className="form-group">
                     <h5 style={{ marginBottom: "10px" }} htmlFor="price">
                         Giá sản phẩm
@@ -154,53 +172,26 @@ export default function FormProduct(props) {
                     <span className="text-danger">{errors.quantity}</span>
                 </div>
                 <div className="form-group">
-                    <h5 style={{ marginBottom: "10px" }} htmlFor="type">
-                        Chi tiết sản phẩm
+                    <h5 style={{ marginBottom: "10px" }} htmlFor="idCompany">
+                        nhà xuất bản
                     </h5>
-                    <textarea
-                        className="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                        name="detail"
+                    <select
+                        className="custom-select"
+                        name="idCompany"
                         onChange={handleChange}
-                        value={values.detail}
-                    ></textarea>
-                    <span className="text-danger">{errors.detail}</span>
+                        value={values.idCompany}
+                    >
+                        <option>Chọn nhà xuất bản</option>
+                        {companies.map((company, index) => {
+                            return (
+                                <option key={index} value={company.id}>
+                                    {company.name}
+                                </option>
+                            );
+                        })}
+                    </select>
+                    <span className="text-danger">{errors.idCompany}</span>
                 </div>
-                <div className="form-group">
-                    <h5 style={{ marginBottom: "10px" }} htmlFor="description">
-                        Kiểu sản phẩm
-                    </h5>
-                    <Select
-                        placeholder="Chọn kiểu sản phẩm"
-                        onChange={(value) => setType(value)}
-                        filterOption={(input, option) =>
-                            (option?.label ?? "")
-                                .toLowerCase()
-                                .includes(input.toLowerCase())
-                        }
-                        value={type}
-                        options={[
-                            {
-                                value: "Hộp",
-                                label: "Hộp",
-                            },
-                            {
-                                value: "Chai",
-                                label: "Chai",
-                            },
-                            {
-                                value: "Miếng",
-                                label: "Miếng",
-                            },
-                            {
-                                value: "Tuýt",
-                                label: "Tuýt",
-                            },
-                        ]}
-                    />
-                </div>
-
                 <div className="form-group">
                     <h5 style={{ marginBottom: "10px" }} htmlFor="idCategory">
                         Loại sản phẩm
@@ -222,7 +213,62 @@ export default function FormProduct(props) {
                     </select>
                     <span className="text-danger">{errors.idCategory}</span>
                 </div>
-
+                <div className="form-group">
+                    <h5 style={{ marginBottom: "10px" }} htmlFor="type">
+                        Nội dung
+                    </h5>
+                    <textarea
+                        className="form-control"
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                        name="detail"
+                        onChange={handleChange}
+                        value={values.detail}
+                    ></textarea>
+                    <span className="text-danger">{errors.detail}</span>
+                </div>
+                
+                <div className="form-group">
+                    <h5 style={{ marginBottom: "10px" }} htmlFor="description">
+                        Kiểu sản phẩm
+                    </h5>
+                    <Select
+                        placeholder="Chọn kiểu sản phẩm"
+                        onChange={(value) => setType(value)}
+                        filterOption={(input, option) =>
+                            (option?.label ?? "")
+                                .toLowerCase()
+                                .includes(input.toLowerCase())
+                        }
+                        value={type}
+                        options={[
+                            {
+                                value: "truyện kinh dị",
+                                label: "truyện kinh dị",
+                            },
+                            {
+                                value: "truyện chữ",
+                                label: "truyện chữ",
+                            },
+                            {
+                                value: "truyện trinh thám",
+                                label: "truyện trinh thám",
+                            },
+                            {
+                                value: "truyện tranh màu",
+                                label: "truyện tranh màu",
+                            },
+                            {
+                                value: "truyện không màu",
+                                label: "truyện không màu",
+                            },
+                            {
+                                value: "truyện tranh cổ tích",
+                                label: "truyện tranh cổ tích",
+                            },
+                        ]}
+                    />
+                </div>
                 <Button
                     type="primary"
                     block

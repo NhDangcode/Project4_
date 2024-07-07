@@ -1,59 +1,38 @@
-import { Button } from "antd";
 import { motion } from "framer-motion";
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import React, { useState } from "react";
 import { Col } from "reactstrap";
-import {
-    addProductToCartApi
-} from "../../../redux/slices/cartSlice";
+import { Link } from "react-router-dom";
 import { VND } from "../../../utils/convertVND";
 import "../../styles/product-card.css";
+
 const ProductCard = (props) => {
     const { item } = props;
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const token = JSON.parse(localStorage.getItem("token"));
-    const dispatch = useDispatch();
-    const addToCart = () => {
-        const data = {
-            idProduct: item.id,
-            quantity: 1,
-            price: item.price,
-        };
-        const dataCart = {
-            accessToken: token,
-            data,
-        };
-        const fetchAddProductToCartApi = async () => {
-            dispatch(addProductToCartApi(dataCart));
-            toast.success(`Thêm ${item.name} vào giỏ hàng thành công!`);
-        };
-        if (currentUser?.data !== undefined) {
-            fetchAddProductToCartApi();
-        } else {
-            toast.error("Bạn cần đăng nhập để thêm vào giỏ hàng!");
+    const [showDetailButton, setShowDetailButton] = useState(item.quantity >= 2);
+
+    const handleShowDetail = () => {
+        if (item.quantity < 2) {
+            setShowDetailButton(false);
         }
     };
+
     return (
         <Col lg="3" md="4" className="mb-2">
-            <div className="product__item" style={{ minHeight: "450px" }}>
+            <div className="product__item" style={{ minHeight: "450px",width:"200px" }}>
                 <div className="product__img">
                     <motion.img
                         whileHover={{ scale: 0.9 }}
                         src={item.pathImg}
                         alt="productImg"
-                        style={{ width: "300px", height: "300px" }}
+                        className="box-shadow"
+                        style={{ width: "200px", height: "300px" }}
                     />
                     <div className="p-2 product__info">
-                        <h3
-                            className="product__name"
-                            style={{ textOverflow: "ellipsis" }}
-                        >
+                        <h3 className="product__name" style={{ textOverflow: "ellipsis", whiteSpace: "normal" }}>
                             <Link reloadDocument to={`/shop/${item.id}`}>
                                 {item.name}
                             </Link>
                         </h3>
+                        <br></br>
                         <span>{item.categoryName}</span>
                     </div>
                     <div className="product__card-bottom d-flex align-items-center justify-content-between p-2">
@@ -61,9 +40,24 @@ const ProductCard = (props) => {
                     </div>
                 </div>
             </div>
-            <Button type="primary" block onClick={addToCart}>
-                Thêm vào giỏ hàng
-            </Button>
+            {!showDetailButton && <p style={{ color: "red" }}>Sản phẩm tạm hết</p>}
+            {showDetailButton && (
+                <Link reloadDocument to={`/shop/${item.id}`}>
+                    <motion.button
+                        whileHover={{ scale: 0.9 }}
+                        style={{ height: "40px", width: "200px" }}
+                        type="button"
+                        className="btn btn-success btn-block"
+                        onClick={handleShowDetail}
+                    >
+                        Chi tiết sản phẩm
+                    </motion.button>
+                </Link>
+            )}
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </Col>
     );
 };

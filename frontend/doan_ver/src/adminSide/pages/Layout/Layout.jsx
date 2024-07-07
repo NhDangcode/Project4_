@@ -6,6 +6,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/NavBar";
 import { getAllProductsApi } from "../../../redux/slices/productSlice";
 import { getAllCategoryApi } from "../../../redux/slices/categorySlice";
+import { getAllCompanyApi } from "../../../redux/slices/companySlice";
 import { getAllOrderApi } from "../../../redux/slices/orderSlice";
 export default function Layout() {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export default function Layout() {
         const fetchGetAllProductsApi = async () => {
             await dispatch(getAllProductsApi());
             await dispatch(getAllCategoryApi());
+            await dispatch(getAllCompanyApi());
             await dispatch(getAllOrderApi());
         };
 

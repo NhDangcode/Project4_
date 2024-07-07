@@ -47,6 +47,11 @@ const navItems = [
         url: "categories",
     },
     {
+        text: "nhà xuất bản",
+        icon: <CategoryOutlined />,
+        url: "companies",
+    }, 
+    {
         text: "Tài khoản",
         icon: <Groups2Outlined />,
         url: "users",
@@ -108,7 +113,7 @@ const Sidebar = ({
                                     gap="0.5rem"
                                 >
                                     <Typography variant="h4" fontWeight="bold">
-                                        LaS
+                                        Website bán truyện
                                     </Typography>
                                 </Box>
                                 {!isNonMobile && (

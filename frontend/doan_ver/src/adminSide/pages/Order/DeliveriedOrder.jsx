@@ -30,8 +30,8 @@ export default function DeliveriedOrder() {
     const columns = [
         {
             title: "ID",
-            dataIndex: "id",
-            key: "id",
+            key: "index",
+            render: (_, __, index) => index + 1,
         },
         {
             title: "Tên khách hàng",

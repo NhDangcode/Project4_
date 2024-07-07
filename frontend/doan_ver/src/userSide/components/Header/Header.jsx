@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 import "./header.css";
-import logo from "../../../assets/images/eco-logo.png";
+import logo from "../../../assets/images/logo_webtruyen.png";
 import icon from "../../../assets/images/user-icon.png";
 import { Button } from "antd";
 import UploadFile from "../UploadFile";
@@ -40,14 +40,14 @@ const Header = () => {
     const onSetOpen = () => {
         setOpen(!open);
     };
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const userAvatar = currentUser?.data.pathImg
-        ? currentUser.data.pathImg
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userAvatar = user?.pathImg
+        ? user.pathImg
         : icon;
-    const userName = currentUser ? currentUser?.data.name : "";
+    const userName = user ? user.name : "";
     const menuRef = useRef(null);
 
-    const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+    const totalQuantity = useSelector((state) => state.cart.cartItems).length;
 
     const menuToggle = () => menuRef.current.classList.toggle("active__menu");
 
@@ -61,8 +61,7 @@ const Header = () => {
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
     const handleLogout = () => {
-        localStorage.removeItem("currentUser");
-        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         navigate("/home");
         window.location.reload(false);
     };
@@ -80,7 +79,7 @@ const Header = () => {
                                 <div className="logo">
                                     <img src={logo} alt="logo" />
                                     <div>
-                                        <h1>LaS</h1>
+                                        <h1>Truyện hay</h1>
                                     </div>
                                 </div>
                             </Link>
@@ -111,15 +110,15 @@ const Header = () => {
                                     })}
                                 </ul>
                             </div>
-                            <Button type="primary" onClick={onSetOpen}>
-                                Upload file tên thuốc cần tìm
-                            </Button>
+                            {/* <Button type="primary" onClick={onSetOpen}>
+                                Upload file  cần tìm
+                            </Button> */}
 
                             <div className="nav__icons">
                                 {/* <span className="fav__icon">
-                <i className="ri-heart-line"></i>
-                <span className="badge">1</span>
-              </span> */}
+                                    <i className="ri-heart-line"></i>
+                                    <span className="badge">1</span>
+                                </span> */}
                                 <span
                                     className="cart__icon"
                                     onClick={navigateToCart}
@@ -150,7 +149,7 @@ const Header = () => {
                                                 style={{ marginTop: "20px" }}
                                                 className="drop__menu"
                                             >
-                                                {currentUser ? (
+                                                {user ? (
                                                     <>
                                                         {" "}
                                                         <NavLink

@@ -17,6 +17,8 @@ public partial class FinalContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Company> Companies { get; set; }
+
     public virtual DbSet<Detailorder> Detailorders { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
@@ -29,7 +31,7 @@ public partial class FinalContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=Admin;Initial Catalog=FINAL;Integrated Security=True;encrypt=false");
+        => optionsBuilder.UseSqlServer("Data Source=CODEBOY\\SQLEXPRESS;Initial Catalog=COMIC;Integrated Security=True;encrypt=false");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -53,7 +55,26 @@ public partial class FinalContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("slug");
         });
+        modelBuilder.Entity<Company>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__COMPANY__3213E83F7B3D1433");
 
+            entity.ToTable("COMPANY");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("(newid())")
+                .HasColumnName("id");
+            entity.Property(e => e.CreateAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("createAt");
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .HasColumnName("name");
+            entity.Property(e => e.Htag)
+                .HasMaxLength(255)
+                .HasColumnName("htag");
+        });
         modelBuilder.Entity<Detailorder>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__DETAILOR__3213E83FB86AD187");
@@ -122,7 +143,11 @@ public partial class FinalContext : DbContext
             entity.Property(e => e.Detail)
                 .HasMaxLength(255)
                 .HasColumnName("detail");
+            entity.Property(e => e.Author)
+                .HasMaxLength(255)
+                .HasColumnName("author");
             entity.Property(e => e.IdCategory).HasColumnName("idCategory");
+            entity.Property(e => e.IdCompany).HasColumnName("idCompany");
             entity.Property(e => e.IdUser).HasColumnName("idUser");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -140,6 +165,10 @@ public partial class FinalContext : DbContext
                 .HasForeignKey(d => d.IdCategory)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__PRODUCT__idCateg__46E78A0C");
+            entity.HasOne(d => d.IdCompanyNavigation).WithMany(p => p.Products)
+               .HasForeignKey(d => d.IdCompany)
+               .OnDelete(DeleteBehavior.Cascade)
+               .HasConstraintName("FK__PRODUCT__idCompa__4BAC3F29");
 
             entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdUser)

@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout/Layout";
 import Product from "./pages/Product/Product";
 import Category from "./pages/Category/Category";
+import Company from "./pages/Company/Company";
 import User from "./pages/User/User";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -15,6 +16,8 @@ import EditProduct from "./pages/Product/EditProduct";
 import PendingOrder from "./pages/Order/PendingOrder";
 import DeliveriedOrder from "./pages/Order/DeliveriedOrder";
 import OrderDetail from "./pages/Order/OrderDetail";
+import InputCompany from "./pages/Company/InputCompany";
+import EditCompany from "./pages/Company/EditCompany";
 import InputCategory from "./pages/Category/InputCategory";
 import EditCategory from "./pages/Category/EditCategory";
 import InputUser from "./pages/User/InputUser";
@@ -37,6 +40,7 @@ const HomeAdmin = () => {
                         <Route path="users/add" element={<InputUser />} />
                         <Route path="products" element={<Product />} />
                         <Route path="categories" element={<Category />} />
+                        <Route path="companies" element={<Company />} />
                         <Route
                             path="category/add"
                             element={<InputCategory />}
@@ -45,6 +49,16 @@ const HomeAdmin = () => {
                         <Route
                             path="category/edit/:idProduct"
                             element={<EditCategory />}
+                        />
+                        
+                        <Route
+                            path="company/add"
+                            element={<InputCompany />}
+                        />
+                        <Route path="dashboard" element={<Dashboard />} />
+                        <Route
+                            path="company/edit/:idCompany"
+                            element={<EditCompany />}
                         />
                         <Route path="product/add" element={<InputProduct />} />
                         <Route

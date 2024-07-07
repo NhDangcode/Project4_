@@ -12,12 +12,10 @@ const { Search } = Input;
 export default function Product() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const token = JSON.parse(localStorage.getItem("token"));
     const listProduct = useSelector((state) => state.product.products);
     const [data, setData] = useState(listProduct.length > 0 ? listProduct : []);
     const onDelete = async (id) => {
-        const result = await deleteProduct(id, token);
-        console.log(result);
+        const result = await deleteProduct(id);
         if (result.status === 200) {
             toast.success("Xóa thành công!");
             dispatch(getAllProductsApi());
@@ -45,6 +43,18 @@ export default function Product() {
             width: 200,
         },
         {
+            title: "Tên tác giả",
+            dataIndex: "author",
+            key: "author",
+            width: 150,
+        },
+        {
+            title: "nhà xuất bản",
+            dataIndex: "companyName",
+            key: "companyName",
+            width: 130,
+        },
+        {
             title: "Giá sản phẩm",
             key: "price",
             render: (text) => {
@@ -57,11 +67,25 @@ export default function Product() {
             key: "quantity",
         },
         {
+            title: "Ngày tạo",
+            key: "createAt",
+            dataIndex: "createAt",
+            render: (value) => {
+                var date = new Date(value);
+                return <>{date.toLocaleDateString()}</>;
+            },
+        },
+        {
             title: "Trạng thái",
             key: "status",
-            render: (value) => <>{value ? "Còn hàng" : "Hết hàng"}</>,
+            render: (value, record) => {
+                if (record.quantity <= 1) {
+                    return <>Hết hàng</>;
+                } else {
+                    return <>Còn hàng</>;
+                }
+            },
         },
-
         {
             title: "Hành động",
             key: "action",
@@ -77,7 +101,7 @@ export default function Product() {
                             });
                         }}
                     >
-                        Chỉnh sửa
+                        Edit
                     </Button>
                     <Button
                         variant="contained"
@@ -98,7 +122,7 @@ export default function Product() {
         <>
             <Row gutter={24} style={{ margin: "20px" }}>
                 <Col span={8}>
-                    <h2>Danh sách sản phẩm</h2>
+                    <h1 className="admin-h1">Danh sách sản phẩm</h1>
                 </Col>
                 <Col span={8}>
                     <Search

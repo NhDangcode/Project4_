@@ -1,12 +1,12 @@
 import axios from "axios";
-const slugs = ['cham-soc-suc-khoe', 'duoc-pham', 'thuc-pham-chuc-nang', 'cham-soc-sac-dep'];
+const slugs = ['truyen-ma', 'truyen-chu', 'man-ga', 'man-hua'];
 
 const headers = {
         'Content-Type': 'application/json',
     }
 export const AddCategory = async (category, products) => {
     try {
-        const response = await axios.post('https://localhost:7102/api/category/add', JSON.stringify(category), { headers });
+        const response = await axios.post('https://localhost:44353/api/category/add', JSON.stringify(category), { headers });
         const result = response.data;
         console.log(result.message);
         if (result.status === 400) {
@@ -31,7 +31,7 @@ export const AddCategory = async (category, products) => {
 }
 export const AddProduct = async product => {
     try {
-        const response = await axios.post('https://localhost:7102/api/product/add', JSON.stringify(product), {headers});
+        const response = await axios.post('https://localhost:44353/api/product/add', JSON.stringify(product), {headers});
         const result = response.data;
         return {
             status: result.status

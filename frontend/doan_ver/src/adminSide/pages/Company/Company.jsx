@@ -4,22 +4,30 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { deleteCategoryServices } from "../../../services/categoryServices";
-import { getAllCategoryApi } from "../../../redux/slices/categorySlice";
-export default function Category() {
+import { deleteCompanyServices } from "../../../services/companyServices";
+import { getAllCompanyApi } from "../../../redux/slices/companySlice";
+
+export default function Company() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const listProduct = useSelector((state) => state.category.categories);
+    const listProduct = useSelector((state) => state.company.companies);
+
     const onDelete = async (id) => {
-        const result = await deleteCategoryServices(id);
-        if (result.status === 200) {
-            toast.success("Xóa thành công!");
-            await dispatch(getAllCategoryApi());
-            navigate("/admin/categories");
-        } else {
-            toast.error("Xóa thất bại!");
+        try {
+            const result = await deleteCompanyServices(id);
+            if (result.status === 200) {
+                toast.success("Xóa thành công!");
+                await dispatch(getAllCompanyApi());
+                navigate("/admin/companies");
+            } else {
+                toast.error("Xóa thất bại!");
+            }
+        } catch (error) {
+            toast.error("Có lỗi xảy ra!");
+            console.error("Delete error:", error);
         }
     };
+
     const columns = [
         {
             title: "ID",
@@ -27,14 +35,14 @@ export default function Category() {
             render: (_, __, index) => index + 1,
         },
         {
-            title: "Tên loại sản phẩm",
+            title: "Tên nhà xuất bản",
             key: "name",
             dataIndex: "name",
         },
         {
             title: "Hastag",
-            dataIndex: "slug",
-            key: "slug",
+            dataIndex: "htag",
+            key: "htag",
         },
         {
             title: "Hành động",
@@ -46,7 +54,7 @@ export default function Category() {
                         color="warning"
                         sx={{ marginLeft: "4px" }}
                         onClick={() => {
-                            navigate(`/admin/category/edit/${record.id}`, {
+                            navigate(`/admin/company/edit/${record.id}`, {
                                 state: record,
                             });
                         }}
@@ -65,6 +73,7 @@ export default function Category() {
             ),
         },
     ];
+
     const rows = listProduct.length > 0 ? listProduct : [];
 
     return (
@@ -76,7 +85,7 @@ export default function Category() {
                     margin: "50px",
                 }}
             >
-                <h2>Danh sách loại sản phẩm</h2>
+                <h1 className="admin-h1">Danh sách nhà xuất bản</h1>
                 <Button
                     style={{
                         marginRight: "100px",
@@ -85,14 +94,14 @@ export default function Category() {
                     color="success"
                     variant="contained"
                     onClick={() => {
-                        navigate("/admin/category/add");
+                        navigate("/admin/company/add");
                     }}
                 >
-                    Thêm loại sản phẩm
+                    Thêm nhà xuất bản
                 </Button>
             </div>
             <div style={{ height: "78vh", width: "100%", padding: "0px 20px" }}>
-                <Table columns={columns} dataSource={rows} />
+                <Table columns={columns} dataSource={rows} rowKey="id" />
             </div>
         </>
     );

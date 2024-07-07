@@ -44,8 +44,8 @@ export default function PendingOrder() {
     const columns = [
         {
             title: "ID",
-            dataIndex: "id",
-            key: "id",
+            key: "index",
+            render: (_, __, index) => index + 1,
         },
         {
             title: "Tên khách hàng",

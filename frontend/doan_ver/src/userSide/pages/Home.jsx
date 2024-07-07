@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Col, Container, Row } from "reactstrap";
 
-import "../styles/home.css";
-import Services from "../components/UI/Services";
 import Clock from "../components/UI/Clock";
+import Services from "../components/UI/Services";
+import "../styles/home.css";
 
 import ProductsList from "../components/UI/ProductsList";
 
+import counterImg from "../../assets/images/back_dep.png";
+import heroImg from "../../assets/images/doraemon.jpg";
 import Helmet from "../components/Helmet/Helmet";
-import heroImg from "../../assets/images/hero-img.png";
-import counterImg from "../../assets/images/counter-timer-img.png";
 
 import { useSelector } from "react-redux";
-import { getAllProductRecommend } from "../../services/recommendServices";
 const Home = () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = JSON.parse(localStorage.getItem("user"));
     const products = useSelector((state) => state.product.products);
     const [trendingProducts, setTrendingProducts] = useState([]);
     const [newProducts, setNewProducts] = useState([]);
@@ -36,7 +35,7 @@ const Home = () => {
                 .slice(0, 8);
 
             const filterTrendingProducts = products
-                .filter((item) => item.slug === "thuc-pham-chuc-nang")
+                .filter((item) => item.slug === "truyen-ma")
                 .slice(0, 4);
 
             setNewProducts(filterNewProducts);
@@ -51,8 +50,8 @@ const Home = () => {
                         <Col lg="6" md="6" sm="6">
                             <div className="hero__content">
                                 {/* <p className="hero__subtitle">Trending product in {year}</p> */}
-                                <h2>NHÀ THUỐC LAS</h2>
-                                <p>Đem đến sự hài lòng cho khách hàng</p>
+                                <h1>Website bán truyện số một</h1>
+                                <h2>Đem đến sự hài lòng cho khách hàng</h2>
                                 <motion.button
                                     whileTap={{ scale: 1.1 }}
                                     className="buy__btn"
@@ -121,7 +120,7 @@ const Home = () => {
                                 whileTap={{ scale: 1.2 }}
                                 className="buy__btn store__btn"
                             >
-                                <Link to="shop">Ghé thăm cửa hàng</Link>
+                                <Link to="http://localhost:3000/shop">Ghé thăm cửa hàng</Link>
                             </motion.button>
                         </Col>
                         <Col lg="6" md="6" className="text-end counter__img">

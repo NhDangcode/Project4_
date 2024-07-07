@@ -35,7 +35,7 @@ const UploadFile = ({ open, onSetOpen }) => {
     return (
         <>
             <Modal
-                title="UPLOAD FILE TÊN THUỐC CẦN TÌM"
+                title="UPLOAD FILE TRUYỆN CẦN TÌM"
                 open={open}
                 onOk={handleOk}
                 onCancel={handleCancel}
